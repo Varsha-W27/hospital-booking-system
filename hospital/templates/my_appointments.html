@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Appointments</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+
+            min-height:100vh;
+
+            background:
+            linear-gradient(
+            rgba(37,99,235,0.85),
+            rgba(56,189,248,0.75)
+            ),
+
+            url('https://images.unsplash.com/photo-1587351021759-3e566b3db4f1?q=80&w=1600');
+
+            background-size:cover;
+            background-position:center;
+
+            padding:50px 20px;
+        }
+
+        .main-box{
+
+            max-width:1000px;
+
+            margin:auto;
+
+            background:rgba(255,255,255,0.15);
+
+            backdrop-filter:blur(15px);
+
+            border-radius:30px;
+
+            padding:40px;
+
+            box-shadow:0 8px 30px rgba(0,0,0,0.2);
+
+            border:1px solid rgba(255,255,255,0.25);
+
+            color:white;
+        }
+
+        h1{
+
+            text-align:center;
+
+            margin-bottom:35px;
+
+            font-weight:700;
+        }
+
+        table{
+
+            width:100%;
+
+            overflow:hidden;
+
+            border-radius:20px;
+        }
+
+        th{
+
+            background:rgba(255,255,255,0.2);
+
+            padding:18px;
+
+            font-size:17px;
+        }
+
+        td{
+
+            background:rgba(255,255,255,0.1);
+
+            padding:18px;
+
+            border-top:1px solid rgba(255,255,255,0.1);
+        }
+
+        tr:hover td{
+
+            background:rgba(255,255,255,0.18);
+
+            transition:0.3s ease;
+        }
+
+        .status{
+
+            background:#22c55e;
+
+            padding:8px 15px;
+
+            border-radius:30px;
+
+            font-size:14px;
+
+            font-weight:600;
+
+            display:inline-block;
+        }
+
+        .back-btn{
+
+            display:inline-block;
+
+            margin-top:30px;
+
+            text-decoration:none;
+
+            background:white;
+
+            color:#2563eb;
+
+            padding:14px 28px;
+
+            border-radius:14px;
+
+            font-weight:600;
+
+            transition:0.3s ease;
+        }
+
+        .back-btn:hover{
+
+            background:#dbeafe;
+
+            transform:translateY(-2px);
+        }
+
+        .empty-text{
+
+            text-align:center;
+
+            font-size:18px;
+
+            margin-top:20px;
+        }
+        .cancel-btn{
+
+    background:#ef4444;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:0.3s ease;
+}
+
+.cancel-btn:hover{
+
+    background:#dc2626;
+
+    color:white;
+}
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="main-box">
+
+        <h1>
+            My Appointments
+        </h1>
+
+        {% if appointments %}
+
+        <table>
+
+            <tr>
+
+                <th>Doctor</th>
+
+                <th>Date</th>
+
+                <th>Time</th>
+
+                <th>Status</th>
+
+                <th>Action</th>
+
+            </tr>
+
+            {% for appointment in appointments %}
+
+            <tr>
+
+                <td>
+                    {{ appointment.doctor_name }}
+                </td>
+
+                <td>
+                    {{ appointment.appointment_date }}
+                </td>
+
+                <td>
+                    {{ appointment.appointment_time }}
+                </td>
+
+                <td>
+    <span class="status">
+        Confirmed
+    </span>
+</td>
+
+<td>
+
+    <a href="/cancel/{{ appointment.id }}/"
+       class="cancel-btn">
+
+       Cancel
+
+    </a>
+
+</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+        {% else %}
+
+        <div class="empty-text">
+
+            No appointments booked yet.
+
+        </div>
+
+        {% endif %}
+
+        <a href="/"
+           class="back-btn">
+
+            Back To Home
+
+        </a>
+
+    </div>
+
+</body>
+
+</html>

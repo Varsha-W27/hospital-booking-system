@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MediCare Hospital</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            background:#f8fbff;
+            color:#0f172a;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        /* Navbar */
+
+        .navbar{
+
+            background:
+            linear-gradient(
+            90deg,
+            #38bdf8,
+            #2563eb
+            );
+
+            padding:18px 0;
+
+            box-shadow:0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand{
+
+            color:white !important;
+
+            font-size:28px;
+
+            font-weight:700;
+        }
+
+        .nav-btn{
+
+            background:rgba(255,255,255,0.2);
+
+            backdrop-filter:blur(10px);
+
+            color:white;
+
+            border:1px solid rgba(255,255,255,0.25);
+
+            padding:10px 22px;
+
+            border-radius:30px;
+
+            text-decoration:none;
+
+            margin-left:10px;
+
+            font-weight:500;
+
+            transition:0.3s ease;
+        }
+
+        .nav-btn:hover{
+
+            background:white;
+
+            color:#2563eb;
+
+            transform:translateY(-3px);
+        }
+
+        .user-name{
+
+            color:white;
+
+            font-weight:600;
+
+            margin-right:10px;
+        }
+
+        /* Hero */
+
+        .hero{
+
+            min-height:95vh;
+
+            background:
+            linear-gradient(
+            rgba(37,99,235,0.78),
+            rgba(56,189,248,0.70)
+            ),
+
+            url('https://images.unsplash.com/photo-1587351021759-3e566b3db4f1?q=80&w=1600');
+
+            background-size:cover;
+
+            background-position:center;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            text-align:center;
+
+            color:white;
+
+            padding:40px;
+        }
+
+        .hero-content{
+
+            max-width:750px;
+        }
+
+        .hero h1{
+
+            font-size:68px;
+
+            font-weight:700;
+
+            margin-bottom:25px;
+        }
+
+        .hero p{
+
+            font-size:20px;
+
+            line-height:1.8;
+
+            margin-bottom:40px;
+        }
+
+        .hero-btn{
+
+            background:white;
+
+            color:#2563eb;
+
+            padding:15px 35px;
+
+            border-radius:40px;
+
+            text-decoration:none;
+
+            font-weight:600;
+
+            font-size:18px;
+
+            transition:0.3s ease;
+        }
+
+        .hero-btn:hover{
+
+            background:#dbeafe;
+
+            transform:translateY(-3px);
+        }
+
+        /* Sections */
+
+        .section{
+
+            padding:90px 0;
+
+            background:
+            linear-gradient(
+            135deg,
+            #dbeafe,
+            #eff6ff
+            );
+        }
+
+        .section-title{
+
+            text-align:center;
+
+            font-size:42px;
+
+            font-weight:700;
+
+            color:#2563eb;
+
+            margin-bottom:60px;
+        }
+
+        /* Service Cards */
+
+        .service-box{
+
+            background:rgba(255,255,255,0.18);
+
+            backdrop-filter:blur(14px);
+
+            border:1px solid rgba(255,255,255,0.25);
+
+            padding:35px;
+
+            border-radius:25px;
+
+            text-align:center;
+
+            box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+            transition:0.3s ease;
+
+            height:100%;
+        }
+
+        .service-box:hover{
+
+            transform:translateY(-10px);
+
+            box-shadow:0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .service-box h4{
+
+            color:#2563eb;
+
+            margin-bottom:15px;
+
+            font-weight:600;
+        }
+
+        /* Doctor Cards */
+
+        .custom-card{
+
+            background:rgba(255,255,255,0.18);
+
+            backdrop-filter:blur(14px);
+
+            border:1px solid rgba(255,255,255,0.25);
+
+            border-radius:25px;
+
+            overflow:hidden;
+
+            box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+            transition:0.3s ease;
+
+            height:100%;
+        }
+
+        .custom-card:hover{
+
+            transform:translateY(-10px);
+
+            box-shadow:0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .custom-card img{
+
+            width:100%;
+
+            height:280px;
+
+            object-fit:cover;
+        }
+
+        .card-body{
+
+            padding:25px;
+
+            text-align:center;
+        }
+
+        .card-body h4{
+
+            color:#2563eb;
+
+            font-weight:600;
+
+            margin-bottom:10px;
+        }
+
+        .card-body p{
+
+            color:#334155;
+        }
+
+        /* Footer */
+
+        footer{
+
+            background:
+            linear-gradient(
+            90deg,
+            #1d4ed8,
+            #1e3a8a
+            );
+
+            color:white;
+
+            padding:60px 0;
+
+            text-align:center;
+        }
+
+        footer h4{
+
+            margin-bottom:15px;
+
+            font-weight:600;
+        }
+
+        footer p{
+
+            margin-bottom:8px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg">
+
+    <div class="container">
+
+        <a class="navbar-brand"
+           href="/">
+
+            MediCare
+
+        </a>
+
+        <div class="ms-auto d-flex align-items-center">
+            {% if user.is_authenticated %}
+
+                <span class="user-name">
+
+                    👤 {{ user.username }}
+
+                </span>
+
+                <a href="/myappointments/"
+                   class="nav-btn">
+
+                    My Appointments
+
+                </a>
+
+                <a href="/logout/"
+                   class="nav-btn">
+
+                    Logout
+
+                </a>
+
+            {% else %}
+
+                <a href="/login/"
+                   class="nav-btn">
+
+                    Login
+
+                </a>
+
+                <a href="/signup/"
+                   class="nav-btn">
+                    Sign Up
+                </a>
+            {% endif %}
+            <a href="/book/"
+               class="nav-btn">
+                Book Appointment
+            </a>
+        </div>
+    </div>
+</nav>
+<section class="hero">
+    <div class="hero-content">
+        <h1>
+            Advanced Healthcare
+            For Modern Living
+        </h1>
+        <p>
+            Experience seamless healthcare booking,
+            trusted doctors, and premium medical services
+            designed for patient comfort and care.
+        </p>
+        <a href="/book/"
+           class="hero-btn">
+            Book Appointment
+        </a>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">
+            Our Services
+        </h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="service-box">
+                    <h4>
+                        🫀 Cardiology
+                    </h4>
+                    <p>
+                        Expert heart care with modern
+                        treatment and diagnosis.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-box">
+                    <h4>
+                        🧠 Neurology
+                    </h4>
+                    <p>
+                        Advanced neurological treatments
+                        from experienced specialists.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-box">
+                    <h4>
+                        🦷 Dental Care
+                    </h4>
+                    <p>
+                        Modern dental procedures with
+                        patient comfort and precision.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">
+            Our Doctors
+        </h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="custom-card">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1200">
+                    <div class="card-body">
+                        <h4>
+                            Dr. Priya Sharma
+                        </h4>
+                        <p>
+                            Cardiologist
+                        </p>
+                        <p>
+                            10+ Years Experience
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="custom-card">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1200">
+                    <div class="card-body">
+                        <h4>
+                            Dr. Rahul Mehta
+                        </h4>
+                        <p>
+                            Neurologist
+                        </p>
+                        <p>
+                            12+ Years Experience
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="custom-card">
+                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=1200">
+                    <div class="card-body">
+                        <h4>
+                            Dr. Anjali Verma
+                        </h4>
+                        <p>
+                            Dentist
+                        </p>
+                        <p>
+                            8+ Years Experience
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <h4>
+            MediCare Hospital
+        </h4>
+        <p>
+            Caring Beyond Boundaries
+        </p>
+        <p>
+            📍 Bangalore, India
+        </p>
+        <p>
+            📞 +91 9876543210
+        </p>
+        <p>
+            ✉ support@medicare.com
+        </p>
+        <p class="mt-4">
+            © 2026 MediCare Hospital
+        </p>
+    </div>
+</footer>
+</body>
+</html>
